@@ -28,3 +28,26 @@ int mapa[10][10] = {
 1,0,0,0,0,0,0,0,0,1,
 1,1,1,1,1,1,1,1,1,1 
 };
+/* Funcao para desenhar o Mapa */
+int desenhar_mapa()
+{
+	int linha,coluna;
+	for (linha=0;linha<10;linha++) {
+		for (coluna=0;coluna<10;coluna++) {
+			if ((linha == linha_atual) && (coluna == coluna_atual)) {
+				printf("@");
+				continue;
+			}
+			if (mapa[linha][coluna] == CHAO)
+				printf(" ");
+			if (mapa[linha][coluna] == PAREDE)
+				printf("*");
+			if (mapa[linha][coluna] == GRAMA)
+				printf(".");
+			if (mapa[linha][coluna] == OUTRA_COISA)
+				printf("+");
+		}
+		printf("\n");
+	}
+	return OK;
+}
