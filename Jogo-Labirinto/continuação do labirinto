@@ -1,0 +1,50 @@
+int main()
+{
+   char movimento;
+   while ((movimento != 'x') && (movimento != 'X')) {
+      system(LIMPARTELA);
+      desenhar_mapa();
+      printf("\n\n  (N)\n(W)+(E)\n  (S)\n\n"); /* Imprime as direcoes */
+      if ((scanf("%c",&movimento))==0) {
+         printf("mensagem de erro..\n");
+         getchar(); getchar();
+         return ERRO;
+      }
+      if ((movimento == 'n') || (movimento == 'N')) {
+         linha_atual = linha_atual - 1;
+         /* Se não for chao ou grama ele volta pra posicao anterior */
+         if ((mapa[linha_atual][coluna_atual] != CHAO) && (mapa[linha_atual][coluna_atual] != GRAMA)) {
+            linha_atual = linha_atual + 1;
+            printf("\n\nups.. ali não =)\n");
+            getchar(); getchar();
+         }
+      }
+      if ((movimento == 's') || (movimento == 'S')) {
+         linha_atual = linha_atual + 1;
+         /* Se não for chao ou grama ele volta pra posicao anterior */
+         if ((mapa[linha_atual][coluna_atual] != CHAO) && (mapa[linha_atual][coluna_atual] != GRAMA)) {
+            linha_atual = linha_atual - 1;
+            printf("\n\nups.. ali não =)\n");
+            getchar(); getchar();
+         }
+      }
+      if ((movimento == 'e') || (movimento == 'E')) {
+         coluna_atual = coluna_atual + 1;
+         /* Se não for chao ou grama ele volta pra posicao anterior */
+         if ((mapa[linha_atual][coluna_atual] != CHAO) && (mapa[linha_atual][coluna_atual] != GRAMA)) {
+            coluna_atual = coluna_atual - 1;
+            printf("\n\nups.. ali não =)\n");
+            getchar(); getchar();
+         }
+      }
+      if ((movimento == 'w') || (movimento == 'W')) {
+         coluna_atual = coluna_atual - 1;
+         /* Se não for chao ou grama ele volta pra posicao anterior */
+         if ((mapa[linha_atual][coluna_atual] != CHAO) && (mapa[linha_atual][coluna_atual] != GRAMA)) {
+            coluna_atual = coluna_atual + 1;
+            printf("\n\nups.. ali não =)\n");
+            getchar(); getchar();
+         }
+      }
+   }
+}
